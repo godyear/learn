@@ -10,6 +10,10 @@ export default {
     Zhiou
   },
   methods:  {
+
     },
+  mounted() {
+
+  }
 }
 </script>
