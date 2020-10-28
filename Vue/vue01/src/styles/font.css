@@ -5,9 +5,11 @@
   font-size: 14px;
 }
 
+
 /* bar-live深蓝色样式 */
 .bar-live {
   font-weight: 400;
   color: aliceblue;
   background-color: rgb(67, 142, 185) !important;
 }
+

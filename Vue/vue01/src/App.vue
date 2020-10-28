@@ -9,5 +9,7 @@ export default {
   components: {
     Zhiou
   },
+  methods:  {
+    },
 }
 </script>
