@@ -1,0 +1,19 @@
+body,
+html {
+  background-color: rgb(239, 239, 239);
+  color: #333;
+  font-size: 16px;
+  font-family: "Microsoft YaHei";
+  height: 100%;
+}
+
+.main-div {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  margin: 0.5% 0.3% 0.5% 0.3%;
+}
+
+.right {
+  margin-left: 0%;
+}
