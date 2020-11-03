@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#2").hide();
+            $("#3").hide();
+            const key = Math.floor(Math.random() * 10);	
+            console.log(key);
+            if (key <= 5){
+                $("#2").show();
+            }else{
+                $('#3').show();
+            }
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h1 id=" demo">Hello JavaScript!</h1>
+        <h1 id = '2'>222</h1>
+        <h1 id = '3'>333</h1>
+        <button type=" button" onclick="myFunction()">check_1</button>
+        <button type=" button" onclick="secondFunction()">check_2</button>
+    </div>
+
+    <script>
+        function secondFunction() {
+            var firstname = ' zhiou';
+            var FirstName = new String(' zhiou');
+            if (firstname === FirstName){
+                return (document.getElementById(' demo').innerHTML = ' True')
+            }else{
+                return (document.getElementById(' demo').innerHTML = ' False')
+            };
+            window.alert('你点击了check_2')
+        };
+        function myFunction() {     
+            name = 'JavaScript';
+            document.getElementById(' demo').innerHTML = ' GOOD' + name;
+        }
+    </script>
+    <script>
+
+    </script>
+
+</body>
+</html>

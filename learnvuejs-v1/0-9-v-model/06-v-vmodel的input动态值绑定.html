@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <label v-for="item in originHobbits" :for="item">
+            <input type="checkbox" :id="item" :value="item" v-model ="hobbits">{{item}}
+        </label>
+        <h1>你的选择是：{{hobbits}}</h1>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                hobbits:[],
+                originHobbits:['篮球', '足球', '排球', '羽毛球', '台球', '高尔夫'],
+            }
+        })
+    </script>
+</body>
+</html>

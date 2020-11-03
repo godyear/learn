@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        {{total}}
+        <button @click = "print">查看</button>
+        <cpn v-model="total"></cpn>
+    </div>
+
+
+    <template id = 'cpn'>
+        <div>
+            <button @click = 'plus'>+</button>
+        </div>
+    </template id>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        
+        const cpn = {
+            template:'#cpn',
+            data(){
+                return{
+                    counter:0
+                }
+            },
+            methods:{
+                plus(){
+                    this.counter++;
+                    console.log('子组件counter:',this.counter);
+                    
+                    this.$emit('input', this.counter)
+                } 
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data:{
+                total:0
+            },
+            components:{
+                cpn,
+            },
+            methods:{
+                print(){
+                    console.log(this.total);
+                    console.log("父组件total：", this.total);
+                }
+            }
+        })
+  
+    </script>
+</body>
+</html>

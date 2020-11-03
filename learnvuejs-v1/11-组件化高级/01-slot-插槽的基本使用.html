@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.在组件标签内插入元素是需要用<slot></slot> -->
+    <!-- 2.<slot></slot>内部可以给定一个默认插槽 -->
+    <div id = 'app'>
+
+        <cpn_0>
+            <button>按钮</button>
+        </cpn_0>
+
+        <cpn_1>
+            <h1>
+                hahahahha
+            </h1>
+        </cpn_1>
+
+        <cpn_2></cpn_2>
+
+    </div>
+
+    <template id = 'cpn_0'>
+
+        <div>
+            <h1>cpn_0子组件</h1>
+            <slot><button>默认slot按钮</button></slot>
+        </div>
+
+    </template>
+
+    <template id = 'cpn_1'>
+
+        <div>
+            <h1>cpn_1子组件</h1>
+            <slot><button>默认slot按钮</button></slot>
+        </div>
+
+    </template>
+
+    <template id = 'cpn_2'>
+
+        <div>
+            <h1>cpn_2子组件</h1>
+            <slot><button>默认slot按钮</button></slot>
+        </div>
+
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+
+        const cpn_0 = {
+            template:'#cpn_0'
+        }
+        const cpn_1 = {
+            template:'#cpn_1'
+        }
+        const cpn_2 = {
+            template:'#cpn_2'
+        }
+        const app = new Vue({
+            el: '#app',
+            components:{
+                cpn_0,
+                cpn_1,
+                cpn_2
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn1></cpn1>
+
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn_2 = Vue.extend({
+            template:`
+                <div>
+                    <h1>aaaaaa</h1>
+                    <p>assssssss</p>
+                </div>
+            `,
+        })
+
+        const cpn_1 = Vue.extend({
+            template:` 
+                <div>
+                    <h1>我是标题</h1>
+                    <p>我是内容啊啊啊啊啊</p>
+                    <cpn2></cpn2>
+                </div>
+            `,
+            components:{
+                cpn2:cpn_2
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            components:{
+                cpn1:cpn_1
+            }
+        })
+    </script>
+</body>
+</html>

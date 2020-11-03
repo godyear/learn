@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+        .line{
+            color: black
+        }
+    </style>
+</head>
+<body>
+    <div id = 'app'>
+        <h1 :class="h1_style()">{{message}}</h1>
+        <button v-on:click = 'btnClick'>改变文本颜色</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                message: '你好啊！',
+                isRed: true,
+                isBlack: true,
+            },
+            methods: {
+                btnClick: function() {
+                    this.isBlack = !this.isBlack
+                },
+                h1_style: function() {
+                    return {line: this.isBlack, active: this.isRed}
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

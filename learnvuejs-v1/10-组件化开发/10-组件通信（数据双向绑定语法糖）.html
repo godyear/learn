@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>子组件</h2>
+
+        {{total}}
+
+        <cpn v-model="total"></cpn>
+
+        <h2>父组件</h2>
+
+        {{total}}
+
+        <button @click='increment'>+</button>
+    </div>
+
+    <template id = 'cpn'>
+        <div>
+            <button @click='plus'>+</button>
+            <button @click='reduce'>-</button>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template:'#cpn',
+            data(){
+                return{
+                    count:0
+                }
+            },
+            methods:{
+                plus(){
+                    this.count++;
+                    this.$emit('input', this.count);
+                },
+                reduce(){
+                    this.count--;
+                    this.$emit('input', this.count)
+                }
+            }
+        }
+        const app = new Vue({
+            el: '#app',
+            data:{
+                total:0
+            },
+            components:{
+                cpn
+            },
+            methods:{
+                increment(){
+                    this.total++
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
+
+
+<!-- 子组件发送$emit时，事件名字为input,在调用组件的时候就可以直接v-model双向绑定了 -->

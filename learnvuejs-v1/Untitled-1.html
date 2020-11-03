@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <h1>当前数：{{counter}}</h1>
+        <cpn @counter_1="counter_2"></cpn>
+    </div>
+    <template id = 'cpn'>
+        <div>
+            <button @click="plus">+</button>
+            <button @click="reduce">-</button>
+        </div>
+    </template>
+    <script src="js/vue.js"></script>
+    <script>
+        const cpn = {
+            template:'#cpn',
+            data() {
+                return{
+                    count:0
+                }
+            },
+            methods:{
+                plus(){
+                    this.count++;
+                    console.log(this.count);
+                    this.$emit('counter_1', this.count)
+                },
+                reduce(){
+                    this.count--;
+                    console.log(this.count);
+                    this.$emit("counter_1", this.count)
+                }
+            },
+        }
+        const app = new Vue({
+            el: '#app',
+            data:{
+                counter:0,
+            },
+            methods:{
+                counter_2(count){
+                    console.log('父组件未接收到值时counter:', this.counter);
+                    this.counter = count;
+                    console.log('父组件接收到值时counter:', this.counter); 
+                }
+            },
+            components:{
+                cpn,
+            }
+        })
+    </script>
+</body>
+</html>
+

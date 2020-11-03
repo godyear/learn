@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //this在函数中时
+        //什么时候使用箭头函数
+        // setTimeout(function () {
+        //     console.log(this);
+            
+        // }, 1000)
+        // //当函数作为参数的时候一般都会使用兼箭头函数
+        // setTimeout(() => {
+        //     console.log(this);
+            
+        // }, 1000)
+
+        //this在对象中的时
+        // const obj = {
+        //     aaa () {
+        //         setTimeout(function () {
+        //             console.log(this);
+                    
+        //           }, 1000)
+
+        //           setTimeout(() => {
+        //               console.log(this);
+        //           }, 1000)
+        //     },
+        //     bbb () {
+        //         setTimeout(() => {
+        //             console.log(this);
+
+        //         }, 1000)
+        //     }
+
+        // }
+
+        const obj = {
+            aaa () {
+                setTimeout(function () {
+                    console.log(this);
+                    
+                  }, 1000)
+
+                setTimeout(() => {
+                    console.log(this);
+                    setTimeout(function () {
+                        console.log(this);
+                        }, 1000)
+
+                setTimeout(() => {
+                    console.log(this);
+                    }, 1000)
+                }, 1000)
+            }
+        }
+
+
+        obj.aaa()
+
+    </script>
+</body>
+</html>

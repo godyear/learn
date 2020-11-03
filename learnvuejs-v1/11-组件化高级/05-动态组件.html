@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id = 'app'>
+        <component :is='ComponentsName'></component>
+        <button @click="changeCom('A')">组件A</button>
+        <button @click="changeCom('B')">组件B</button>
+        <button @click="changeCom('C')">组件C</button>
+    </div>
+
+    <template id = 'comA'>
+        <div>
+            组件A
+        </div>
+    </template>
+    <template id = 'comB'>
+        <div>
+            组件B
+        </div>
+    </template>
+    <template id = 'comC'>
+        <div>
+            组件C
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const comA = {
+            template:'#comA',
+
+        }
+        const comB = {
+            template:'#comB'
+        }
+        const comC = {
+            template:'#comC'
+        }
+        const app = new Vue({
+            el: '#app',
+            data:{
+                ComponentsName:'comA'
+            },
+            methods:{
+                changeCom(component){
+                    this.ComponentsName = 'com' + component
+                }
+            },
+            components:{
+                comA,
+                comB,
+                comC
+
+            }
+        })
+    </script>
+</body>
+</html>

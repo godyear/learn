@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>{{getFullName}}</h2>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                firstname: '',
+                lastname: '',
+            },
+            computed:{
+                getFullName: {
+                    set: function(inputname) {
+                        inputname = inputname.split(' ');
+                        this.firstname = inputname[0];
+                        this.lastname = inputname[1];
+                    },
+                    get: function() {
+                        return this.firstname + ' ' + this.lastname;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

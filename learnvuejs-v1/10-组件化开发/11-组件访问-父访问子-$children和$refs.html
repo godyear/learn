@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn_0></cpn_0>   
+        <cpn_1></cpn_1>
+        <cpn_2 ref="cpn_2"></cpn_2 ref="cpn_2">
+        <button @click = 'look'>查看</button>
+
+    </div>
+
+    <template id = 'cpn_0'>
+        <div>
+            我的子组件0
+        </div>
+    </template>
+
+    <template id = 'cpn_1'>
+        <div>
+            我的子组件1
+        </div>
+    </template>
+
+    <template id = 'cpn_2'>
+        <div>
+            我的子组件2
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn_0 = {
+            template:"#cpn_0",
+            data(){
+                return{
+                    name:'子组件name0'
+                }
+            },
+
+        }
+        const cpn_1 = {
+            template:"#cpn_1",
+            data(){
+                return{
+                    name:'子组件name1'
+                }
+            },
+
+        }
+
+        const cpn_2 = {
+            template:"#cpn_2",
+            data(){
+                return{
+                    name:'子组件name2'
+                }
+            },
+
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data:{
+                name:'父组件name',
+            },
+            components:{
+                cpn_1,
+                cpn_0,
+                cpn_2,
+            },
+            methods:{
+                look(){
+                    console.log(this.$children[0].name);
+                    console.log(this.$children[1].name);
+                    console.log(this.$refs.cpn_2.name);
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

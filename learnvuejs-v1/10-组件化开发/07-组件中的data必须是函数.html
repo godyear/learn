@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <!-- 当data是一个函数时，所创建的组件实例则不会共享数据 -->
+        <!-- 函数会在栈空间内创建地址 -->
+        <!-- 如果是对象就会使组件共用同一个内存地址 -->
+        <Counter></Counter>
+        <Counter></Counter>
+        <Counter></Counter>
+        <Counter></Counter>
+    </div>
+
+
+    <template id = "Counter">
+        <div>
+            <h1>当前数字是：{{counter}}</h1>
+            <button @click="plus">+</button>
+            <button @click="reduce">-</button>
+        </div>
+    </template id>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            components:{
+                Counter:{
+                    template:'#Counter',
+                data() {
+                    return{
+                        counter: 0,
+                    }
+                },
+                methods:{
+                    plus(){
+                        this.counter++
+                    },
+                    reduce(){
+                        this.counter--
+                    }
+                }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

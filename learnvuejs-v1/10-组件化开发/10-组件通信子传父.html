@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn @childclick="patent"></cpn>
+    </div>
+
+
+    <template id = 'cpn'>
+        <div>
+            <button v-for="item in info" @click="childclick(item)">{{item.name}}</button>
+        </div>
+    </template>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template:'#cpn',
+            data() {
+                return{
+                    info:[ 
+
+                        {id:'aaa', name:'热门推荐'},
+                        {id:'bbb', name:'家用电器'},
+                        {id:'ccc', name:'数码电器'},
+                        {id:'ddd', name:'玩具办公'},
+                    ]
+                    
+                }
+            },
+            methods:{
+                childclick(item){
+                    this.$emit('childclick', item)
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            components:{
+                cpn
+            },
+            data:{
+
+            },
+            methods:{
+                patent(item1){
+                    console.log('patent', item1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

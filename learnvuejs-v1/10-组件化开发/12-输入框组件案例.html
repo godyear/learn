@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn v-model="total"></cpn>
+    </div>
+
+    <template id='cpn'>
+        <div>
+            <span><input type="text" v-model.number='value'></span>
+            <span>
+                <button @click="plus">+</button>
+                <button @click="reduce">-</button>
+            </span>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+
+        const cpn = {
+            template:"#cpn",
+            data(){
+                return{
+                    value:0
+                }
+            },
+            methods:{
+                plus(){
+                    this.value++;
+                    this.$emit('input', this.value)
+                },
+                reduce(){
+                    this.value--;
+                    this.$emit('input', this.value)
+                }
+            }
+        }
+        const app =new Vue({
+            el:'#app',
+            data:{
+                total:0
+            },
+            components:{
+                cpn,
+            }
+        })
+    </script>
+</body>
+</html>

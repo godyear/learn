@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <h1>{{message}}</h1>
+    </div>
+
+    <script>
+        //1.const 定义之后不能够修改
+        // const name = 'why';
+        //2.在使用const定义标识符，必须进行赋值
+        // const name;
+        // name = 'why'
+        //3.常量的含义是指向的对象不能修改，但是可以改变对象内部的属性
+        const obj = {
+            name: 'why',
+            age: 18,
+            height: 1.88,
+        }
+        console.log(obj.name);
+        obj.name = 'zhiou';
+        console.log(obj.name);
+        
+        
+        // const app = new Vue({
+        //     el: '#app',
+        //     data: {
+
+        //     }
+        // })
+    </script>
+</body>
+</html>

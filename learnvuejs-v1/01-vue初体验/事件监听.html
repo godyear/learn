@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>{{counter}}</h2>
+        <button @click = 'increment'>+</button>
+        <button @click = 'decrement'>-</button>
+
+        <button @click = 'btnclick_1'>按钮1</button>
+        <button @click = 'btnclick_1()'>按钮2</button>
+
+        <button @click = 'btnclick_2(111)'>按钮3</button>
+        <!-- 函数没有传参,vue会默认将浏览器生成的event变成参数 -->
+        <button @click = 'btnclick_2()'> 按钮3_2</button>
+
+        <!--在方法定义时，我们需要event对象，同时又需要其他参数-->
+        <!--在调用方法，手动获得浏览器事件-->
+        <button @click = "btnclick_3('abc',$event)">按钮4</button>
+        <button>按钮5</button>
+
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                counter: 0,
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                },
+                decrement() {
+                    this.counter--
+                },
+                btnclick_1() {
+                    console.log('btnclick_1');
+                },
+                btnclick_2(event) {
+                    console.log('-------',event);
+                    
+                },
+                btnclick_3(abc, event) {
+                    console.log('--------',abc,event);
+                    
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

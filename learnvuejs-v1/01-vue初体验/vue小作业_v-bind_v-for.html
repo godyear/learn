@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'app'>
+        <ul>
+            <li v-for = '(item, index) in movies' :key = "item"
+            v-bind:class = "{active: currentindex === index}"
+            @click.stop = 'ChangeClass(index)'>
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+    <script>    
+        const app = new Vue({
+            el: '#app',
+            data: {
+                movies: ['海王','进击的巨人','楚门的世界','星际穿越'],
+                isActive: true,
+                currentindex: 0,
+            },
+            methods: {
+                ChangeClass(index) {
+                    this.currentindex = index;
+                }
+            }
+        }) 
+            
+    </script>
+</body>
+</html>

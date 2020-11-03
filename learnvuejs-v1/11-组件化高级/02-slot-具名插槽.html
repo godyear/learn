@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn><h1>center</h1></cpn>
+        <br>
+        <br>
+        <cpn><h1 slot = 'right'>center</h1></cpn>
+    </div>
+
+    <template id = 'cpn'>
+        <div>
+            <h1>具名插槽</h1>
+            <slot>left</slot>
+            <slot>center</slot>
+            <slot name='right'>right</slot>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template:"#cpn",
+
+        }
+        const app = new Vue({
+            el: '#app',
+            data:{
+
+            },
+            components:{
+                cpn
+            }
+        })
+    </script>
+</body>
+</html>

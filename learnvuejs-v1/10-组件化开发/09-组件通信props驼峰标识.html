@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <!-- v-bind不支持驼峰，需要转化为以下形式 -->
+        <cpn :c-movies="movies" :c-message="message"></cpn>
+    </div> 
+
+
+    <template id = "cpn">
+        <div>
+            <ul>
+                <li v-for="item in cMovies">{{item}}</li>
+            </ul>
+            <p>{{cMessage}}</p>
+        </div>
+    </template id>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                movies:['海王', '海贼王', '海尔兄弟'],
+                message:'你好啊！',
+            },
+            components:{
+                cpn:{
+                    template:"#cpn",
+                    props:{
+                        cMovies:{
+                            type: Array,
+                            default() {
+                                return []
+                            },
+                            required:true
+                        },
+                        cMessage:{
+                            type:String,
+                            default:'aaaaa',
+                            required:true
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

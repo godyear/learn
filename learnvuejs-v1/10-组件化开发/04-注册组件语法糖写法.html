@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+        <!-- <cpn1></cpn1> -->
+        <cpn2></cpn2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        /* 1.全局组件语法糖 */
+        Vue.component('cpn1', {
+            template:` 
+                <div>
+                    <h1>我是标题</h1>
+                    <p>我是内容啊啊啊啊啊</p>
+                    <cpn2></cpn2>
+                </div>
+            `
+        })
+        /* 2.局部组件语法糖 */
+        const app = new Vue({
+            el: '#app',
+            components:{
+                cpn2:{
+                    template:` 
+                <div>
+                    <h1>我是标题</h1>
+                    <p>我是内容啊啊啊啊啊</p>
+                </div>
+            `
+                }
+            }
+        })
+    </script>
+</body>
+</html>

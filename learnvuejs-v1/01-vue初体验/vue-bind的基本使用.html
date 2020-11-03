@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <!--v-bind指令-->
+        <img :src="imgURL" alt="">
+        <a :href="aHref">守望先锋</a>
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                message: '你好啊！',
+                imgURL: 'http://img2.imgtn.bdimg.com/it/u=2782246270,2466765968&fm=26&gp=0.jpg',
+                aHref: 'https://www.baidu.com/link?url=ri8B0Lu5UD8CCDhTa0IVzPlfTjtrTHzk8qHEJsBraOvo62FDZvlxJWGaXtZDuwQ3&wd=&eqid=9c0c929f000de4cc000000065edf5637'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <!-- 1.lazy修饰符，失去焦点或者按下回车才进行绑定 -->
+        <label for="input_0">
+            <input type="text" v-model.lazy = "message">
+        </label>
+        <h2>你输入的是：{{message}}</h2>
+
+        <!-- 2.number修饰符，将输入的转化为number -->
+        <label for="input_1">
+            <input type="text" v-model.number.lazy = "age">
+        </label>
+        <h2>你的年龄是：{{age}} 类型：{{typeof age}}</h2>
+
+        <!-- 3.trim修饰符，消除空格 -->
+        <label for="input_2">
+            <input type="text" v-model.trim = "name">
+        </label>
+        <h2>你的名字是：{{name}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                message:'',
+                name:'',
+                age: '',
+            }
+        })
+    </script>
+</body>
+</html>

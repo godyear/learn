@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+<body>
+    <div id = 'app'>
+        <h2>总价格是：{{totalprice}}</h2>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {id: 110, name: 'C语言程序设计', price: 100},
+                    {id: 111, name: 'java语言程序设计', price: 110},
+                    {id: 112, name: 'python语言程序设计', price: 90},
+                    {id: 113, name: 'go语言程序设计', price: 70},
+                ]
+            },
+            computed: {
+                totalprice: function () {
+                    let sum = 0;
+                    for (let item of this.books) {
+                        console.log(item.price);
+                        
+                        sum += item.price
+                    }
+                    return sum
+                  }
+            }
+        })
+    </script>
+</body>
+</html>

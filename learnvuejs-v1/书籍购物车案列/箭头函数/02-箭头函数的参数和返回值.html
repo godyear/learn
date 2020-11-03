@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //参数问题
+
+        //1.放入两个参数
+        const sum = (num1, num2) => {
+            return num1 + num2
+        }
+
+        //2.放入单个参数
+        const power = num => {
+            return num * num
+        }
+        
+        //3.没有参数的时
+        const nonumber = () => {
+            console.log('Hello!');
+            
+        }
+
+        //4.函数块中有多行代码时
+        const pri = () => {
+            console.log('Hello World!');
+            console.log('Hello ES6')
+            
+        }
+        //5.函数块中只有一行代码时
+        const sum_1 = (num1, num2) => num1 + num2
+
+        total = sum_1(20, 30);
+        console.log(total);
+        nonumber();
+        pri()
+        
+
+        //
+        const demo = () => console.log(total);
+        console.log(demo());
+        
+        
+        
+    </script>
+</body>
+</html>

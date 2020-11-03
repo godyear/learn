@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn>
+            <!-- 1.使用子组件的数据时需要用slot-scope="xxx" -->
+            <!-- 2.必须放在一个<template></template>标签里面 -->
+            <template slot-scope = 'slot'>
+                <span>{{slot.data.join(' + ')}}</span>
+            </template>
+        </cpn>
+        <cpn>
+            <template slot-scope='slot'>
+                <span v-for="item in slot.data">{{item}}</span>
+            </template>
+        </cpn>
+    </div>
+
+    <template id = 'cpn'>
+        <div>
+            <!-- 3.需要将子组件内的数据通过v-bind绑定到某一个虚拟内存中，如下data -->
+            <slot :data="books"><span v-for="item in books">{{item}}</span></slot>
+        </div>
+    </template id>
+
+    <script src="../js/vue.js"></script>
+    <script>
+
+        const cpn = {
+            template:'#cpn',
+            data(){
+                return{
+                    books:[
+                    'JavaScrip',
+                    'Python',
+                    'Java',
+                    'Go',
+                    'C/C++',
+                    'C#'
+                ]
+                }
+            }
+        }
+
+        const app = new Vue({
+            el :'#app',
+            data:{
+
+            },
+            components:{
+                cpn,
+            }
+        })
+    </script>
+</body>
+</html>
