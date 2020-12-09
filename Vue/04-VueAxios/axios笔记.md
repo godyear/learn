@@ -32,7 +32,7 @@ axios({
 
 + 针对get请求的参数拼接
 
-```javas
+```javascript
 axios({
 	url:'http://123.207.32.32:8000/home/multidata',
 	method: 'get',
@@ -55,7 +55,7 @@ axios({
 
 ## axios发送并发请求
 
-```javas
+```javascript
 //axios发送并发请求（类似于Promise的all方法）
 //返回结果是一个数组
 axios.all([axios({
@@ -80,7 +80,7 @@ axios.all([axios({
 
 + defaults全局属性（默认）
 
-  ```javas
+  ```javascript
   axios.defaults.baseURL = 'http://152.136.185.210:8000/api/n3'
   axios.defaults.timeout = 5000  //超时无效ms
   

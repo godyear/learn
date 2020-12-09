@@ -99,15 +99,13 @@
 **`justify-content`** 属性定义了浏览器之间，如何分配顺着弹性容器主轴(或者网格行轴) 的元素之间及其周围的空间
 
 + `justify-content: start;`                   ![image-20201022111411846](C:\Users\17840\AppData\Roaming\Typora\typora-user-images\image-20201022111411846.png)
-
 + `justify-content: center;`                ![image-20201022111440818](C:\Users\17840\AppData\Roaming\Typora\typora-user-images\image-20201022111440818.png)
-
 + `justufy-content: space-between;` ![image-20201022111512600](C:\Users\17840\AppData\Roaming\Typora\typora-user-images\image-20201022111512600.png)
-
 + `justify-content: space-around;`   ![image-20201022111539058](C:\Users\17840\AppData\Roaming\Typora\typora-user-images\image-20201022111539058.png)
-
 + `justify-content: space-evenly;`   ![image-20201022112325561](C:\Users\17840\AppData\Roaming\Typora\typora-user-images\image-20201022112325561.png)
   + 该属性 均匀排列每个元素 每个元素之间的间隔相等 
++ `justify-content: end;`
+  + 轴线的终点位置开始排列
 
 
 
@@ -145,9 +143,9 @@
 ### 5.1 order(顺序)
 
 + **`order`** 属性规定了弹性容器中的可伸缩项目在布局时的顺序。
-
 + 元素按照 `order` 属性的值的增序进行布局。拥有相同 `order` 属性值的元素按照它们在源代码中出现的顺序进行布局。
 + **注意**: `order` 仅仅对元素的视觉顺序 (**visual order**) 产生作用，并不会影响元素的逻辑或 tab 顺序。 **`order`** 不可以用于非视觉媒体，例如 speech。
++ 默认值： 0，可以为负。
 
 ```html
 <!--html文件-->
@@ -155,7 +153,7 @@
   <div class="box1">1</div>
   <div class="box2">2</div>
   <div class="box3">3</div>
-</div>h
+</div>
 ```
 
 ```css
@@ -217,5 +215,13 @@
 
 
 
-### 5.4：flex-basis
+### 5.4：flex
+
+`flex`属性是`flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为`0 1 auto`。后两个属性可选。
+
+
+
+### 5.5：align-self
+
+`align-self`属性允许单个项目有与其他项目不一样的对齐方式，可覆盖`align-items`属性。默认值为`auto`，表示继承父元素的`align-items`属性，如果没有父元素，则等同于`stretch`。
 

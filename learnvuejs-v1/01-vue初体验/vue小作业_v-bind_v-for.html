@@ -15,7 +15,7 @@
     <div id = 'app'>
         <ul>
             <li v-for = '(item, index) in movies' :key = "item"
-            v-bind:class = "{active: currentindex === index}"
+            v-bind:class = "{active: currentIndex === index}"
             @click.stop = 'ChangeClass(index)'>
                 {{item}}
             </li>
@@ -28,11 +28,11 @@
             data: {
                 movies: ['海王','进击的巨人','楚门的世界','星际穿越'],
                 isActive: true,
-                currentindex: 0,
+                currentIndex: 0,
             },
             methods: {
                 ChangeClass(index) {
-                    this.currentindex = index;
+                    this.currentIndex = index;
                 }
             }
         }) 

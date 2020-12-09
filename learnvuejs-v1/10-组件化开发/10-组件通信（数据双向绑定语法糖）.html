@@ -31,9 +31,9 @@
     <script>
         const cpn = {
             template:'#cpn',
-            data(){
+            data() {
                 return{
-                    count:0
+                    count:0,
                 }
             },
             methods:{
@@ -43,21 +43,21 @@
                 },
                 reduce(){
                     this.count--;
-                    this.$emit('input', this.count)
+                    this.$emit('input', this.count);
                 }
             }
         }
         const app = new Vue({
             el: '#app',
             data:{
-                total:0
+                total:0,
             },
             components:{
                 cpn
             },
             methods:{
                 increment(){
-                    this.total++
+                    this.total++;
                 }
             }
         })
